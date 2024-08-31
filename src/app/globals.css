@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 30% 4%;
+    --background01: 240, 11%, 9%;
+    --background02: 240 9% 11%;
+    --background03: 240 9% 13%;
+    --foreground: 240 0% 100%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 130 100% 50%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 40 2% 64%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 11% 9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+#tsparticles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -999;
+}
+html {
+  scroll-behavior: smooth;
+}
+.swiper-button-next {
+  color: white !important;
+}
+.swiper-button-prev {
+  color: white !important;
+}
+.swiper {
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+}
+
+.swiper-pagination {
+  margin-top: 38px !important;
+  position: relative !important;
+}
+.swiper-pagination .swiper-pagination-bullet-active {
+  background: hsl(var(--primary)) !important;
+}
+
+.swiper-pagination-bullet {
+  background: white !important;
+}
+
+.swiper-container {
+  width: 480px;
+}
+
+@media screen and (min-width: 640px) {
+  .swiper-container {
+    width: 640px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-container {
+    width: 768px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .swiper-container {
+    width: 1024px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .swiper-container {
+    width: 1440px;
+  }
+}
+.blob {
+  margin: 5px;
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.459);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/*/ GALLERY /*/
+.image-gallery {
+  width: 100%;
+}
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
+  border: 4px solid transparent !important;
+  filter: saturate(1);
+  opacity: 100%;
+  border-radius: 8px;
+}
+
+.image-gallery-thumbnail-inner,
+.image-gallery-thumbnail,
+.image-gallery-thumbnail-image {
+  border-radius: 4px;
+}
+.image-gallery-thumbnail:hover {
+  filter: saturate(1);
+  opacity: 100%;
+  border: 4px solid transparent !important;
+  transition: none !important;
+}
+.image-gallery-thumbnail {
+  border: 4px solid transparent;
+  filter: saturate(0);
+  opacity: 50%;
+}
+
+.image-gallery-icon {
+  filter: none !important;
+}
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  height: 36px !important;
+  width: 18px !important;
+}
+.image-gallery-icon:hover svg {
+  stroke: hsl(var(--primary)) !important;
+}
+
+.image-gallery-slides,
+.image-gallery-slide,
+.image-gallery-image {
+  border-radius: 12px !important;
+  width: 100% !important;
+}
+.image-gallery {
+  width: 100% !important;
+
+}
+.image-gallery-swipe {
+  width: 100% !important;
+}
+.image-gallery-slide-wrapper {
+  width: 100% !important;
+}
+.image-gallery-content {
+  width: 100% !important;
+
+}
+.image-gallery-image img {
+  width: 100% !important;
+}
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  width: 100% !important;
+}
+.image-gallery.fullscreen-modal {
+  z-index: 999999999999999 !important;
+}
+/*/ SELLIX /*/
+.sellix-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.sellix-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.sellix-iframe-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sellix-iframe-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.sellix-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.sellix-iframe-loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sellix-iframe-loader {
+  width: 35px;
+}
+
+/*/ SALE RIBBON /*/
+.wdp-ribbon {
+  display: inline-block;
+  padding: 2px 15px;
+  position: absolute;
+  right: 0px;
+  z-index: 9999;
+  top: 20px;
+  line-height: 24px;
+  height: 28px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+  border-radius: 0;
+  text-shadow: none;
+  font-weight: normal;
+  background-color: #ec141f !important;
+}
+
+.wdp-ribbon-two:before,
+.wdp-ribbon-two:before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 0;
+  border: 9px solid transparent;
+  border-width: 14px 8px;
+  border-right-color: #1eb5ff;
+}
+.wdp-ribbon-two:before {
+  border-color: #ec141f;
+  border-left-color: transparent !important;
+  left: -9px;
+}
