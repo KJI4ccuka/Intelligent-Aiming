@@ -30,7 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
-public/images/ark_sa.mp4
 
 
 # typescript
