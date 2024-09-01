@@ -6,26 +6,26 @@ import SubscriptionList from '@/components/shared/products/subscription-list'
 
 const LeftSideBar = ({ products }) => {
 	return (
-		<div className={'min-w-[25%] bg-background-01 min-h-screen flex flex-col justify-between backdrop-blur'}>
+		<div className={' bg-background-01 flex flex-col justify-between backdrop-blur'}>
 			<div>
-				<div className={'bg-background-01 p-3.5 border-b w-full flex justify-between items-center'}>
-					<span className={'text-sm font-semibold xl:text-xl'}>Available Subscriptions:</span>
+				<div className={'bg-background-01 p-2.5 border-b w-full flex justify-between items-center lg:p-3.5'}>
+					<span className={'text-xs font-semibold lg:text-xl'}>Available Subscriptions:</span>
 				</div>
 				<SubscriptionList products={products} />
 			</div>
 			
-			<Card className={'m-4 bg-background-02 border'} x-chunk="dashboard-02-chunk-0">
-				<CardHeader className="p-2 pt-0 md:p-4">
-					<CardTitle>Contact us:</CardTitle>
-					<CardDescription className={'font-light max-w-[75%]'}>
+			<Card className={'m-2 bg-background-02 border lg:m-4'} x-chunk="dashboard-02-chunk-0">
+				<CardHeader className="p-2 lg:p-4">
+					<CardTitle className={'text-sm mt-1 lg:text-lg'}>Contact us:</CardTitle>
+					<CardDescription className={'text-xs font-light lg:text-sm'}>
 						Unlock all features and get unlimited access to our support team
 					</CardDescription>
 				</CardHeader>
-				<CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-					<Button variant={'glowing'} className={'mb-4 w-full'}>
+				<CardContent className="p-2 pt-1 lg:p-4">
+					<Button variant={'glowing'} className={'text-xs mb-2 w-full lg:mb-4'}>
 						Visit our site
 					</Button>
-					<DiscordButton className={'mx-0'} />
+					<DiscordButton classnameSvg={'20'} className={'text-xs mx-0 p-2.5'} />
 				</CardContent>
 			</Card>
 		</div>

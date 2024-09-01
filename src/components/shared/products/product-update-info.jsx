@@ -15,56 +15,56 @@ const RightSidebar = ({ productsInfo }) => {
 	}
 	
 	return (
-		<div className={'w-full md:w-[40%] pr-4'}>
+		<div className={'w-full md:w-[40%] pr-2 lg:pr-4'}>
 			<Card className="bg-background-01 overflow-hidden" x-chunk="dashboard-05-chunk-4">
-				<CardHeader className="flex p-3 border-b flex-row items-center justify-between bg-background-01 xl:p-4">
-					<CardTitle className="text-sm group inline-flex items-center xl:text-lg">
+				<CardHeader className="flex p-2.5 border-b flex-row items-center space-y-0 justify-between bg-background-01 lg:p-3 xl:p-4">
+					<CardTitle className="text-xs group inline-flex items-center xl:text-lg">
 						{productsInfo.name}
 					</CardTitle>
-					<ShieldCheck className={'bg-[#141419] text-primary w-5 h-5 xl:h-6 xl:w-5'} />
+					<ShieldCheck className={'text-primary my-0 w-[18px] h-[18px] xl:h-6 xl:w-5'} />
 				</CardHeader>
-				<CardContent className="p-3 lg:p-4 text-sm">
+				<CardContent className="p-2.5 text-sm lg:p-4">
 					<div className="grid gap-2">
-						<div className="font-semibold">Product Details</div>
+						<div className="text-xs font-semibold lg:text-sm">Product Details</div>
 						<ul className="grid gap-1.5">
 							<li className="flex items-center justify-between">
-								<span className="text-muted-foreground font-light">Time left:</span>
-								<span className={days <= 3 && 'text-red-500'}>{days} DAYS</span>
+								<span className="text-xs text-muted-foreground font-light lg:text-sm">Time left:</span>
+								<span className={`text-xs lg:text-sm ${days <= 3 && 'text-red-500'}`}>{days} DAYS</span>
 							</li>
 							<li className="flex items-center justify-between">
-								<span className="text-muted-foreground font-light">Status:</span>
-								<span className={statusClasses[status] || ''}>
+								<span className="text-xs text-muted-foreground font-light lg:text-sm">Status:</span>
+								<span className={`text-xs lg:text-sm ${statusClasses[status] || ''}`}>
 									{status.toUpperCase()}
 								</span>
 							</li>
 						</ul>
-						<Separator className="my-2" />
-						<Tabs defaultValue="Changelog" className="w-full">
-							<TabsList className={'bg-background-02'}>
-								<TabsTrigger className={'text-xs lg:text-sm'} value="Changelog">Changelog:</TabsTrigger>
-								<TabsTrigger className={'text-xs lg:text-sm'} value="Requirements">Requirements:</TabsTrigger>
+						<Separator className="my-1 lg:my-2" />
+						<Tabs defaultValue="Requirements" className="w-full">
+							<TabsList className={'h-9 bg-background-02 lg:h-10'}>
+								<TabsTrigger className={'py-1.5 px-2 text-xs lg:text-sm'} value="Requirements">Requirements:</TabsTrigger>
+								<TabsTrigger className={'py-1.5 px-2 text-xs lg:text-sm'} value="Changelog">Changelog:</TabsTrigger>
 							</TabsList>
 							<TabsContent value="Changelog">
-								<ScrollArea className="h-28 w-full border-border bg-background-02/10 border rounded-lg p-2.5">
-									<ul className="grid gap-3 mr-1.5">
+								<ScrollArea className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">
+									<ul className="grid gap-0 mr-1.5 lg:gap-2">
 										<li className="flex flex-col items-left justify-between">
 											<span
-												className="text-xs text-muted-foreground lg:text-sm">{productsInfo.product_changelog_title}:</span>
-											<span className={'text-xs font-light lg:text-sm'}>{productsInfo.product_changelog_body}</span>
+												className="text-[10px] text-muted-foreground font-light lg:text-sm">{productsInfo.product_changelog_title}:</span>
+											<span className={'text-[10px] font-light lg:text-sm'}>{productsInfo.product_changelog_body}</span>
 										</li>
 									</ul>
 								</ScrollArea>
 							</TabsContent>
 							<TabsContent value="Requirements">
-								<ScrollArea className="h-28 w-full bg-background-02/10 border-border border rounded-lg p-2.5">
-									<ul className="grid gap-3 mr-1.5">
+								<ScrollArea className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">
+									<ul className="grid gap-0 mr-1.5 lg:gap-2">
 										{productsInfo.product_requirements.map((item, index) => {
 											const [key, value] = Object.entries(item)[0]
 											
 											return (
 												<li key={index} className="flex items-center justify-between">
-													<span className="text-xs text-muted-foreground font-light lg:text-sm">- {key}</span>
-													<span className={'text-xs lg:text-sm'}>{value.toUpperCase()}</span>
+													<span className="text-[10px] text-muted-foreground font-light lg:text-sm">- {key}</span>
+													<span className={'text-[10px] lg:text-sm'}>{value.toUpperCase()}</span>
 												</li>
 											)
 										})}
@@ -74,8 +74,8 @@ const RightSidebar = ({ productsInfo }) => {
 						</Tabs>
 					</div>
 				</CardContent>
-				<CardFooter className="flex flex-row items-center border-t bg-background/ px-5 py-3">
-					<div className="text-xs text-foreground/80 font-light">
+				<CardFooter className="flex px-2.5 py-2 flex-row items-center border-t bg-background/ lg:px-5 lg:py-3">
+					<div className="text-[10px] text-foreground/80 font-light lg:text-xs">
 						Last update: <time dateTime="2023-11-23">{productsInfo.product_last_updated}</time>
 					</div>
 				</CardFooter>

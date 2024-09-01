@@ -2,13 +2,9 @@
 
 export function Hero() {
   return (
-    <>
-      {/* <HeroHighlight>
-        <Navbar />
-        <PageHeading title="Intelligent Aiming" subtitle="Top-tier cheats, unmatched privacy and security." />
-      </HeroHighlight> */}
+    <div className="absolute top-0 left-0 w-full h-screen overflow-hidden">
       <video
-        className="h-screen  absolute -z-[144] min-w-min"
+        className="h-full w-full object-cover"
         autoPlay
         muted
         loop
@@ -16,9 +12,6 @@ export function Hero() {
       >
         <source src="/images/char.mp4" type="video/mp4" />
       </video>
-      <div>
-        {/* <img src="https://i.imgur.com/nL1MW0M.jpeg" className="absolute top-0 -z-[51] object-contain"/> */}
-      </div>
-    </>
+    </div>
   );
 }

@@ -25,8 +25,8 @@ const VideoGallery = ({ images }) => {
 	};
 	
 	return (
-		<div className="flex justify-center mt-2">
-			<div className="flex justify-center w-full overflow-x-auto space-x-3 py-[8px]">
+		<div className="flex justify-center mt-0 lg:mt-2">
+			<div className="flex py-1.5 justify-center w-full overflow-x-auto space-x-3 lg:py-[8px]">
 				{images.map((item, index) => (
 					<div
 						key={index}

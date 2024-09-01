@@ -1,18 +1,16 @@
 'use client'
 
-import { Hero } from '@/components/shared/hero'
 import React from 'react'
 import VideoPlayer from '@/components/shared/products/vedeo-player'
 import RightSidebar from '@/components/shared/products/product-update-info'
 import LeftSideBar from '@/components/shared/products/left-sidebar'
 import ProductDescription from '@/components/shared/products/product-description'
 import VideoGallery from '@/components/shared/products/images-gallery'
-import PaymentsEmbed from '@/components/shared/payment-embed'
 
 const products =
 	[
 		{
-			'icon': 'https://intelligent-aiming.xyz/IAIcons/ARK-Survival-Ascended.png',
+			'icon': '/images/ARK-Survival-Ascended.png',
 			'name': 'ARK: Survival Ascended',
 			'images': [
 				'/images/Desktop-Screenshot-2023.11.10---18.14.41.49.png',
@@ -65,7 +63,7 @@ const products =
 		},
 		{
 			'icon':
-				'https://intelligent-aiming.xyz/IAIcons/ARK-Survival-Evolved.png',
+				'/images/ARK-Survival-Evolved.png',
 			'name':
 				'ARK: Survival Evolved',
 			'images':
@@ -125,18 +123,18 @@ export default function ProductsPage() {
 	
 	return (
 		<section>
-			<div className={'flex relative justify-end'}>
-				<Hero />
+			<div className={'flex min-h-screen'}>
+				{/*<Hero />*/}
 				
 				<LeftSideBar products={products} />
 				
 				<div className={'w-[75%] relative border-l-2'}>
-					<div className={'bg-background-01 p-3.5 border-b w-full flex justify-between items-center'}>
-						<span className={'text-sm font-semibold w-1/2 lg:text-xl'}>Intelligent aiming</span>
+					<div className={'bg-background-01 p-2.5 border-b w-full flex justify-between items-center lg:p-3.5'}>
+						<span className={'text-xs font-semibold lg:text-xl'}>Intelligent aiming</span>
 					</div>
 					
-					<div className={'mt-4 flex justify-between'}>
-						<div className={'w-[60%] px-4'}>
+					<div className={'mt-2 flex justify-between lg:mt-4'}>
+						<div className={'w-[60%] px-2 lg:px-4'}>
 							<div>
 								<VideoPlayer videoUrl={products[0].video} />
 							</div>
@@ -146,9 +144,8 @@ export default function ProductsPage() {
 						
 						<RightSidebar productsInfo={products[0]} />
 					</div>
-					<div className={'p-4'}>
-						<ProductDescription pay={<PaymentsEmbed />} product={products[0]} />
-					</div>
+				
+						<ProductDescription product={products[0]} />
 				
 				</div>
 			</div>

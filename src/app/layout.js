@@ -1,5 +1,5 @@
-import { Lexend } from 'next/font/google';
-import './globals.css';
+import { Lexend } from 'next/font/google'
+import './globals.css'
 
 const lexend = Lexend({
   subsets: ['latin'],
@@ -11,7 +11,7 @@ const lexend = Lexend({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <body className={`${lexend.className} relative antialiased`}>
+    <body className={`${lexend.className}`}>
       {children}
     </body>
     </html>

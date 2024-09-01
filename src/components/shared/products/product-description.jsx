@@ -3,46 +3,46 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
 import { CircleHelp } from 'lucide-react'
 
-const ProductDescription = ({ pay, product }) => {
+const ProductDescription = ({ product }) => {
 	
 	
 	return (
 		<div
-			className={'bg-background-01 flex flex-col justify-between backdrop-blur rounded-xl border-2 p-4'}
+			className={'bg-background-01 p-2.5 m-2 flex flex-col justify-between backdrop-blur rounded-xl border-2 lg:p-4 lg:m-4'}
 		>
 			<Tabs defaultValue={'Purchase'}>
-				<div className={'flex justify-between mb-4'}>
+				<div className={'flex justify-between mb-2 lg:mb-4'}>
 					<TabsList className={'bg-background-02 h-full'}>
-						<TabsTrigger className={'text-[16px] font-normal'} value="Purchase">Purchase</TabsTrigger>
-						<TabsTrigger className={'text-[16px] font-normal'} value="Upgrades">Available upgrades</TabsTrigger>
+						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Purchase">Purchase</TabsTrigger>
+						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Upgrades">Available upgrades</TabsTrigger>
 					</TabsList>
 					<Button
 						variant="glowing"
-						className="rounded-lg font-light tracking-wide text-sm px-5 py-4 flex items-center"
+						className="rounded-lg font-light tracking-wide text-xs h-auto px-2 py-2 flex items-center"
 					>
-						<CircleHelp className="xs:block mr-2 h-5 w-5" />
+						<CircleHelp className="xs:block mr-2 h-4 w-4" />
 						Get help
 					</Button>
 				</div>
 				
 				<TabsContent value="Purchase">
-					<div className="flex gap-7 border-border bg-background-02/10 border rounded-lg p-2.5">
+					<div className="flex justify-between p-2 gap-2.5 border-border bg-background-02/10 border rounded-lg lg:gap-3 lg:p-2.5">
 						{product.purchase_options.map((item, index) => (
 							<div key={index}
-							     className={'py-4 px-16 flex flex-col items-center rounded-lg font-light bg-background-02'}>
-								<div className={''}>{item.title}</div>
+							     className={'py-2 w-1/3 flex flex-col items-center rounded-lg bg-background-02 lg:py-2'}>
 								<div>10€</div>
+								<span className={'text-xs font-light'}>{item.title}</span>
 							</div>
 						))}
 					</div>
 				</TabsContent>
 				<TabsContent value="Upgrades">
-					<div className="flex gap-7 border-border bg-background-02/10 border rounded-lg p-2.5">
+					<div className="flex justify-between p-2 gap-2.5 border-border bg-background-02/10 border rounded-lg lg:gap-3 lg:p-2.5">
 						{product.upgrades_available.map((item, index) => (
 							<div key={index}
-							     className={'py-4 px-16 flex flex-col items-center rounded-lg font-light bg-background-02'}>
-								{item.title}
+							     className={'py-2 w-1/2 flex flex-col items-center rounded-lg bg-background-02 lg:py-2'}>
 								<div>10€</div>
+								<span className={'text-xs font-light'}>	{item.title}</span>
 							</div>
 						))}
 					</div>
