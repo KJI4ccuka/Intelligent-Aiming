@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { ShieldCheck } from 'lucide-react'
+import { ClipboardList, ShieldCheck, SquarePen } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -15,7 +15,7 @@ const RightSidebar = ({ productsInfo }) => {
 	}
 	
 	return (
-		<div className={'w-full md:w-[40%] pr-2 lg:pr-4'}>
+		<div className={'w-full flex flex-col md:w-[40%] pr-2 lg:pr-4'}>
 			<Card className="bg-background-01 overflow-hidden" x-chunk="dashboard-05-chunk-4">
 				<CardHeader className="flex p-2.5 border-b flex-row items-center space-y-0 justify-between bg-background-01 lg:p-3 xl:p-4">
 					<CardTitle className="text-xs group inline-flex items-center xl:text-lg">
@@ -24,25 +24,25 @@ const RightSidebar = ({ productsInfo }) => {
 					<ShieldCheck className={'text-primary my-0 w-[18px] h-[18px] xl:h-6 xl:w-5'} />
 				</CardHeader>
 				<CardContent className="p-2.5 text-sm lg:p-4">
-					<div className="grid gap-2">
-						<div className="text-xs font-semibold lg:text-sm">Product Details</div>
-						<ul className="grid gap-1.5">
+					<div className="grid">
+						<span className="mb-1.5 text-xs font-semibold lg:text-sm lg:mb-2">Product Details</span>
+						<ul className="grid lg:gap-2">
 							<li className="flex items-center justify-between">
-								<span className="text-xs text-muted-foreground font-light lg:text-sm">Time left:</span>
-								<span className={`text-xs lg:text-sm ${days <= 3 && 'text-red-500'}`}>{days} DAYS</span>
+								<span className="text-[11px] text-muted-foreground font-light lg:text-sm">Time left:</span>
+								<span className={`text-[11px] lg:text-sm ${days <= 3 && 'text-red-500'}`}>{days} DAYS</span>
 							</li>
 							<li className="flex items-center justify-between">
-								<span className="text-xs text-muted-foreground font-light lg:text-sm">Status:</span>
-								<span className={`text-xs lg:text-sm ${statusClasses[status] || ''}`}>
+								<span className="text-[11px] text-muted-foreground font-light lg:text-sm">Status:</span>
+								<span className={`text-[11px] lg:text-sm ${statusClasses[status] || ''}`}>
 									{status.toUpperCase()}
 								</span>
 							</li>
 						</ul>
 						<Separator className="my-1 lg:my-2" />
 						<Tabs defaultValue="Requirements" className="w-full">
-							<TabsList className={'h-9 bg-background-02 lg:h-10'}>
-								<TabsTrigger className={'py-1.5 px-2 text-xs lg:text-sm'} value="Requirements">Requirements:</TabsTrigger>
-								<TabsTrigger className={'py-1.5 px-2 text-xs lg:text-sm'} value="Changelog">Changelog:</TabsTrigger>
+							<TabsList className={'h-7 bg-background-02 lg:h-10'}>
+								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:py-1'} value="Requirements"><ClipboardList className={'w-3 lg:w-3.5 mr-1'}/>Requirements:</TabsTrigger>
+								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:py-1'} value="Changelog"><SquarePen className={'w-3 lg:w-3.5 mr-1'}/>Changelog:</TabsTrigger>
 							</TabsList>
 							<TabsContent value="Changelog">
 								<ScrollArea className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">
@@ -50,7 +50,7 @@ const RightSidebar = ({ productsInfo }) => {
 										<li className="flex flex-col items-left justify-between">
 											<span
 												className="text-[10px] text-muted-foreground font-light lg:text-sm">{productsInfo.product_changelog_title}:</span>
-											<span className={'text-[10px] font-light lg:text-sm'}>{productsInfo.product_changelog_body}</span>
+											<span className={'text-[10px] leading-3 font-light lg:text-sm'}>{productsInfo.product_changelog_body}</span>
 										</li>
 									</ul>
 								</ScrollArea>

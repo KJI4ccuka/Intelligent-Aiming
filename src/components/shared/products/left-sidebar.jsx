@@ -15,17 +15,17 @@ const LeftSideBar = ({ products }) => {
 			</div>
 			
 			<Card className={'m-2 bg-background-02 border lg:m-4'} x-chunk="dashboard-02-chunk-0">
-				<CardHeader className="p-2 lg:p-4">
-					<CardTitle className={'text-sm mt-1 lg:text-lg'}>Contact us:</CardTitle>
-					<CardDescription className={'text-xs font-light lg:text-sm'}>
+				<CardHeader className="p-2 lg:p-4 lg:pb-1">
+					<CardTitle className={'text-sm mt-1 lg:text-xl'}>Contact us:</CardTitle>
+					<CardDescription className={'w-[75%] text-xs font-light lg:text-sm'}>
 						Unlock all features and get unlimited access to our support team
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="p-2 pt-1 lg:p-4">
-					<Button variant={'glowing'} className={'text-xs mb-2 w-full lg:mb-4'}>
+					<Button variant={'glowing'} className={'text-xs mb-2 w-full lg:mb-4 lg:text-sm'}>
 						Visit our site
 					</Button>
-					<DiscordButton classnameSvg={'20'} className={'text-xs mx-0 p-2.5'} />
+					<DiscordButton classnameSvg={'20'} className={'text-xs mx-0 p-2.5 lg:text-sm'} />
 				</CardContent>
 			</Card>
 		</div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
-import { CircleHelp } from 'lucide-react'
+import { CircleHelp, CopyPlus, Euro } from 'lucide-react'
 
 const ProductDescription = ({ product }) => {
 	
@@ -13,14 +13,14 @@ const ProductDescription = ({ product }) => {
 			<Tabs defaultValue={'Purchase'}>
 				<div className={'flex justify-between mb-2 lg:mb-4'}>
 					<TabsList className={'bg-background-02 h-full'}>
-						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Purchase">Purchase</TabsTrigger>
-						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Upgrades">Available upgrades</TabsTrigger>
+						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Purchase"><Euro className={'w-4 mr-1'}/>Purchase</TabsTrigger>
+						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Upgrades"><CopyPlus className={'w-3.5 mr-1'}/>Available upgrades</TabsTrigger>
 					</TabsList>
 					<Button
 						variant="glowing"
-						className="rounded-lg font-light tracking-wide text-xs h-auto px-2 py-2 flex items-center"
+						className="rounded-lg font-light tracking-wide text-xs h-auto px-2 py-2 flex items-center lg:text-sm lg:px-4"
 					>
-						<CircleHelp className="xs:block mr-2 h-4 w-4" />
+						<CircleHelp className="xs:block mr-1.5 h-4 w-4" />
 						Get help
 					</Button>
 				</div>
@@ -42,7 +42,7 @@ const ProductDescription = ({ product }) => {
 							<div key={index}
 							     className={'py-2 w-1/2 flex flex-col items-center rounded-lg bg-background-02 lg:py-2'}>
 								<div>10€</div>
-								<span className={'text-xs font-light'}>	{item.title}</span>
+								<span className={'text-xs font-light'}>{item.title}</span>
 							</div>
 						))}
 					</div>

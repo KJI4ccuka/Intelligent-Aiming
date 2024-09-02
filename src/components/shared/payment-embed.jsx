@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { DollarSign, X } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
+import React, { useEffect } from 'react'
+import { X } from 'lucide-react'
 import Cookies from 'js-cookie'
-import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import useModalStore from '@/store/modal'
 
 const PaymentsEmbed = (
 	{
@@ -12,19 +11,18 @@ const PaymentsEmbed = (
 		productId,
 		children
 	}) => {
-	const searchParams = useSearchParams()
+	// const searchParams = useSearchParams()
 	
-	const [showModal, setShowModal] = useState(false)
-	const [showPaypal, setShowPaypal] = useState(false)
-	const [showCryptocurrencies, setShowCryptocurrencies] = useState(false)
-	const [showMiddleman, setShowMiddleman] = useState(false)
+	const { isModalOpen, showModal, closeModal } = useModalStore()
 	
-	console.log(searchParams.get('ref'))
+	const [showPaypal, setShowPaypal] = React.useState(false)
+	const [showCryptocurrencies, setShowCryptocurrencies] = React.useState(false)
+	const [showMiddleman, setShowMiddleman] = React.useState(false)
 	
 	useEffect(() => {
 		const modalCloseHandler = (event) => {
 			if (event.data === 'close-embed') {
-				setShowModal(false)
+				closeModal()
 				setShowPaypal(false)
 				setShowCryptocurrencies(false)
 			}
@@ -35,15 +33,14 @@ const PaymentsEmbed = (
 		return () => {
 			window.removeEventListener('message', modalCloseHandler)
 		}
-	}, [])
-	
+	}, [closeModal])
 	
 	const handleEmbedButtonClick = () => {
-		setShowModal(true)
+		showModal()
 	}
 	
 	const modalClose = () => {
-		setShowModal(false)
+		closeModal()
 	}
 	
 	let iframeUrl
@@ -54,52 +51,35 @@ const PaymentsEmbed = (
 		iframeUrl = `https://embed.sellix.io/product/${sellixCryptoId}`
 	}
 	
-	// useEffect(() => {
-	//   const refCustomIDFromCookie = Cookies.get('referralID');
-	//   if (refCustomIDFromCookie) {
-	//     iframeUrl += `?custom-ref=${refCustomIDFromCookie}`;
-	//   }
-	// }, []);
 	const refCustomIDFromCookie = Cookies.get('referralID')
 	
 	if (refCustomIDFromCookie !== null) {
 		iframeUrl += `?custom-ref=${refCustomIDFromCookie}`
 	}
-	// const queryRefCustomID = searchParams.get('ref');
-	// if (queryRefCustomID !== null) {
-	//   iframeUrl += `?custom-ref=${queryRefCustomID}`;
-	// }
 	
 	const handlePaypalButtonClick = () => {
 		setShowPaypal(true)
-		setShowModal(false)
+		closeModal()
 	}
+	
 	const handlePaypalButtonClose = () => {
 		setShowPaypal(false)
 	}
 	
 	const handleCryptocurrenciesButtonClick = () => {
 		setShowCryptocurrencies(true)
-		setShowModal(false)
+		closeModal()
 	}
+	
 	const handleCryptocurrenciesButtonClose = () => {
 		setShowCryptocurrencies(false)
 	}
+	
 	return (
 		<>
-			<Button
-				variant='glowing'
-				onClick={handleEmbedButtonClick}
-				className="rounded-lg font-semibold tracking-wide text-lg px-16 py-5 flex items-center"
-			>
-				<DollarSign className="xs:block mr-2 h-6 w-6" />
-				<span className="text-[18px] font-normal xs:text-lg tracking-wide">Purchase</span>
-			</Button>
-			{showModal && (
+			{isModalOpen && ( // Используйте состояние из Zustand
 				<>
-					{/* <div className="w-full h-full fixed top-0 left-0 flex justify-center items-center z-[99998] bg-black/75" onClick={modalClose} ></div> */}
 					<div className="w-full h-full fixed top-0 left-0 flex justify-center items-center z-[99999] bg-black/75">
-						{/* <div className="absolute w-full h-full" onClick={modalClose}></div> */}
 						<div className="max-w-[500px] w-full bg-background-01 p-4 rounded-lg ">
 							<div className="flex py-2 px-2">
 								<p className="text-md">Intelligent Aiming Pay</p>

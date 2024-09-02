@@ -4,8 +4,9 @@ import React from 'react'
 import VideoPlayer from '@/components/shared/products/vedeo-player'
 import RightSidebar from '@/components/shared/products/product-update-info'
 import LeftSideBar from '@/components/shared/products/left-sidebar'
-import ProductDescription from '@/components/shared/products/product-description'
 import VideoGallery from '@/components/shared/products/images-gallery'
+import ProductDescription from '@/components/shared/products/product-description'
+import PaymentsEmbed from '@/components/shared/payment-embed'
 
 const products =
 	[
@@ -125,6 +126,7 @@ export default function ProductsPage() {
 		<section>
 			<div className={'flex min-h-screen'}>
 				{/*<Hero />*/}
+				{<PaymentsEmbed/>}
 				
 				<LeftSideBar products={products} />
 				
@@ -134,8 +136,8 @@ export default function ProductsPage() {
 					</div>
 					
 					<div className={'mt-2 flex justify-between lg:mt-4'}>
-						<div className={'w-[60%] px-2 lg:px-4'}>
-							<div>
+						<div className={'w-[60%] flex flex-col justify-between px-2 lg:px-4'}>
+							<div className={''}>
 								<VideoPlayer videoUrl={products[0].video} />
 							</div>
 							
