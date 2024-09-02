@@ -38,9 +38,8 @@ const ProductRow = ({ item }) => {
 			</TableCell>
 			
 			{item.sub_active <= 0 && (
-				<div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity">
+				<div onClick={showModal} className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity">
 					<Button
-						onClick={showModal}
 						variant="primary"
 						className="text-sm text-primary lg:text-base"
 					>
