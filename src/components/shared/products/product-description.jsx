@@ -12,15 +12,15 @@ const ProductDescription = ({ product }) => {
 		>
 			<Tabs defaultValue={'Purchase'}>
 				<div className={'flex justify-between mb-2 lg:mb-4'}>
-					<TabsList className={'bg-background-02 h-full'}>
-						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Purchase"><Euro className={'w-4 mr-1'}/>Purchase</TabsTrigger>
-						<TabsTrigger className={'text-xs font-normal lg:text-[16px]'} value="Upgrades"><CopyPlus className={'w-3.5 mr-1'}/>Available upgrades</TabsTrigger>
+					<TabsList className={'bg-background-02 h-8 lg:h-10'}>
+						<TabsTrigger className={'text-xs py-0 px-1.5  font-normal lg:px-3 lg:py-1 lg:text-[16px]'} value="Purchase"><Euro className={'w-4 mr-1'}/>Purchase</TabsTrigger>
+						<TabsTrigger className={'text-xs py-0 px-1.5 font-normal lg:px-3 lg:py-1 lg:text-[16px]'} value="Upgrades"><CopyPlus className={'w-3.5 mr-1'}/>Available upgrades</TabsTrigger>
 					</TabsList>
 					<Button
 						variant="glowing"
-						className="rounded-lg font-light tracking-wide text-xs h-auto px-2 py-2 flex items-center lg:text-sm lg:px-4"
+						className="rounded-lg font-light tracking-wide text-xs h-7 px-2 py-1.5 flex items-center lg:h-10 lg:py-2 lg:text-sm lg:px-4"
 					>
-						<CircleHelp className="xs:block mr-1.5 h-4 w-4" />
+						<CircleHelp className="xs:block mr-1.5 h-3.5 w-3.5" />
 						Get help
 					</Button>
 				</div>

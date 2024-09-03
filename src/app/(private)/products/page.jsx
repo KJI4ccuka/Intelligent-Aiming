@@ -126,7 +126,7 @@ export default function ProductsPage() {
 		<section>
 			<div className={'flex min-h-screen'}>
 				{/*<Hero />*/}
-				{<PaymentsEmbed/>}
+				{<PaymentsEmbed />}
 				
 				<LeftSideBar products={products} />
 				
@@ -146,9 +146,8 @@ export default function ProductsPage() {
 						
 						<RightSidebar productsInfo={products[0]} />
 					</div>
-				
-						<ProductDescription product={products[0]} />
-				
+					
+					<ProductDescription product={products[0]} />
 				</div>
 			</div>
 		</section>

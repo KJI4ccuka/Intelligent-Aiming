@@ -14,13 +14,13 @@ const ProductRow = ({ item }) => {
 			}`}
 		>
 			<TableCell className="hidden sm:table-cell p-0">
-				<img className="max-w-8 lg:w-12" src={item.icon} alt="Product icon" />
+				<img className="max-w-7 lg:w-12" src={item.icon} alt="Product icon" />
 			</TableCell>
-			<TableCell className="text-[9px] leading-3 font-normal p-0 mx-1 md:text-[10px] lg:mx-2 lg:text-sm">
+			<TableCell className="text-[8px] leading-3 font-normal p-0 mx-1 md:text-[8.5px] lg:mx-2 lg:text-sm">
 				{item.name}
 			</TableCell>
 			<TableCell className={'p-0'}>
-				<Badge className={'text-[8px] py-0 px-1.5 font-light lg:text-[11px]'} variant="outline">
+				<Badge className={'text-[7.6px] py-0 px-1 font-light md:px-1.5 lg:text-[11px]'} variant="outline">
 					{item.sub_active > 0 ? 'Active' : 'Inactive'}
 				</Badge>
 			</TableCell>

@@ -41,8 +41,8 @@ const RightSidebar = ({ productsInfo }) => {
 						<Separator className="my-1 lg:my-2" />
 						<Tabs defaultValue="Requirements" className="w-full">
 							<TabsList className={'h-7 bg-background-02 lg:h-10'}>
-								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:py-1'} value="Requirements"><ClipboardList className={'w-3 lg:w-3.5 mr-1'}/>Requirements:</TabsTrigger>
-								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:py-1'} value="Changelog"><SquarePen className={'w-3 lg:w-3.5 mr-1'}/>Changelog:</TabsTrigger>
+								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:px-2.5 lg:py-1'} value="Requirements"><ClipboardList className={'w-3 lg:w-3.5 mr-1'}/>Requirements:</TabsTrigger>
+								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:px-2.5 lg:py-1'} value="Changelog"><SquarePen className={'w-3 lg:w-3.5 mr-1'}/>Changelog:</TabsTrigger>
 							</TabsList>
 							<TabsContent value="Changelog">
 								<ScrollArea className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">

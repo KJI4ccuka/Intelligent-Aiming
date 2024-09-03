@@ -6,7 +6,7 @@ import SubscriptionList from '@/components/shared/products/subscription-list'
 
 const LeftSideBar = ({ products }) => {
 	return (
-		<div className={' bg-background-01 flex flex-col justify-between backdrop-blur'}>
+		<div className={'w-1/4 bg-background-01 flex flex-col justify-between backdrop-blur'}>
 			<div>
 				<div className={'bg-background-01 p-2.5 border-b w-full flex justify-between items-center lg:p-3.5'}>
 					<span className={'text-xs font-semibold lg:text-xl'}>Available Subscriptions:</span>

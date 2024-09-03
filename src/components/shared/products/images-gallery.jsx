@@ -26,11 +26,11 @@ const VideoGallery = ({ images }) => {
 	
 	return (
 		<div className="flex justify-center mt-0 lg:mt-2">
-			<div className="flex pt-1.5 justify-center w-full overflow-x-auto space-x-3 lg:py-[8px]">
+			<div className="flex py-1.5 justify-center w-full overflow-x-auto space-x-3 lg:py-[8px]">
 				{images.map((item, index) => (
 					<div
 						key={index}
-						className="bg-background w-[94px] h-[58px] rounded-[4px] aspect-square flex-shrink-0 cursor-pointer transition-transform transform hover:scale-110"
+						className="bg-background w-[58px] h-[40px] lg:w-[94px] lg:h-[58px] rounded-[4px] aspect-square flex-shrink-0 cursor-pointer transition-transform transform hover:scale-110"
 						onClick={() => openGallery(index)}
 					>
 						<img
