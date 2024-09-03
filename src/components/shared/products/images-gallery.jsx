@@ -30,7 +30,7 @@ const VideoGallery = ({ images }) => {
 				{images.map((item, index) => (
 					<div
 						key={index}
-						className="bg-background w-[58px] h-[40px] lg:w-[94px] lg:h-[58px] rounded-[4px] aspect-square flex-shrink-0 cursor-pointer transition-transform transform hover:scale-110"
+						className="bg-background w-[70px] h-[50px] lg:w-[94px] lg:h-[58px] rounded-[4px] aspect-square flex-shrink-0 cursor-pointer transition-transform transform hover:scale-110"
 						onClick={() => openGallery(index)}
 					>
 						<img

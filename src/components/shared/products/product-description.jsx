@@ -8,7 +8,7 @@ const ProductDescription = ({ product }) => {
 	
 	return (
 		<div
-			className={'bg-background-01 p-2.5 m-2 flex flex-col justify-between backdrop-blur rounded-xl border-2 lg:p-4 lg:m-4'}
+			className={'bg-background-01 h-44 p-2.5 m-2 flex h flex-col justify-between backdrop-blur rounded-xl border-2 lg:p-4 lg:m-4'}
 		>
 			<Tabs defaultValue={'Purchase'}>
 				<div className={'flex justify-between mb-2 lg:mb-4'}>

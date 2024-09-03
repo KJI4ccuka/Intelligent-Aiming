@@ -7,6 +7,7 @@ import LeftSideBar from '@/components/shared/products/left-sidebar'
 import VideoGallery from '@/components/shared/products/images-gallery'
 import ProductDescription from '@/components/shared/products/product-description'
 import PaymentsEmbed from '@/components/shared/payment-embed'
+import { Hero } from '@/components/shared/hero'
 
 const products =
 	[
@@ -125,7 +126,7 @@ export default function ProductsPage() {
 	return (
 		<section>
 			<div className={'flex min-h-screen'}>
-				{/*<Hero />*/}
+				<Hero />
 				{<PaymentsEmbed />}
 				
 				<LeftSideBar products={products} />
@@ -136,8 +137,8 @@ export default function ProductsPage() {
 					</div>
 					
 					<div className={'mt-2 flex justify-between lg:mt-4'}>
-						<div className={'w-[60%] flex flex-col justify-between px-2 lg:px-4'}>
-							<div className={''}>
+						<div className={'w-[60%] flex-grow flex-col justify-between px-2 lg:px-4'}>
+							<div>
 								<VideoPlayer videoUrl={products[0].video} />
 							</div>
 							

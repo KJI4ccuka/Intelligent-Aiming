@@ -17,7 +17,7 @@ const LeftSideBar = ({ products }) => {
 			<Card className={'m-2 bg-background-02 border lg:m-4'} x-chunk="dashboard-02-chunk-0">
 				<CardHeader className="p-2 lg:p-4 lg:pb-1">
 					<CardTitle className={'text-sm mt-1 lg:text-xl'}>Contact us:</CardTitle>
-					<CardDescription className={'w-[75%] text-xs font-light lg:text-sm'}>
+					<CardDescription className={'w-full text-[10px] font-light lg:text-sm lg:w-[75%]'}>
 						Unlock all features and get unlimited access to our support team
 					</CardDescription>
 				</CardHeader>
