@@ -6,7 +6,6 @@ export const metadata = {
 export default function AuthLayout({ children }) {
   return (
     <main className={'min-h-screen'}>
-      auth
       {children}
     </main>
   );

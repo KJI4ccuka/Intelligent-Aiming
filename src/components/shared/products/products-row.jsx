@@ -1,17 +1,25 @@
 import { TableCell, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { MoreHorizontal } from 'lucide-react'
+import { ArrowUpRight, MoreHorizontal } from 'lucide-react'
 import useModalStore from '@/store/modal'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import Link from 'next/link'
 
-const ProductRow = ({ item }) => {
+const ProductRow = ({ item, isSelected, onSelect }) => {
 	const showModal = useModalStore((state) => state.showModal)
 	
 	return (
 		<TableRow
+			onClick={onSelect}
 			className={`relative p-1.5 flex justify-between items-center lg:p-2.5 transition-all ${
-				item.sub_active > 0 ? 'bg-background-01 cursor-pointer' : 'bg-background-02 opacity-50'
+				item.sub_active > 0
+					? isSelected
+						? 'border-[0.2px] border-primary/65 rounded bg-background-01 shadow-[inset_0_2px_15px_rgba(0,255,150,0.2),0_0_8px_rgba(0,255,150,0.6)]'
+						: 'bg-background-01 cursor-pointer'
+					: 'bg-background-02 opacity-50'
 			}`}
+		
 		>
 			<TableCell className="hidden sm:table-cell p-0">
 				<img className="max-w-7 lg:w-12" src={item.icon} alt="Product icon" />
@@ -25,24 +33,35 @@ const ProductRow = ({ item }) => {
 				</Badge>
 			</TableCell>
 			<TableCell className={'mx-2 p-0'}>
-				<Button
-					className={'h-6 w-6 lg:w-9 lg:h-9 rounded-sm'}
-					aria-haspopup="true"
-					size="icon"
-					variant="ghost"
-					disabled={item.sub_active === 0}
-				>
-					<MoreHorizontal className="h-4 w-4 lg:h-5 lg:w-5" />
-					<span className="sr-only">Toggle menu</span>
-				</Button>
+				<DropdownMenu>
+					<DropdownMenuTrigger>
+						<Button
+							className={'h-6 w-6 lg:w-9 lg:h-9 rounded-sm'}
+							aria-haspopup="true"
+							size="icon"
+							variant="ghost"
+							disabled={item.sub_active === 0}
+						>
+							<MoreHorizontal className="h-4 w-4 lg:h-5 lg:w-5" />
+							<span className="sr-only">Toggle menu</span>
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-36">
+						<Link href={'https://intelligent-aiming.xyz/'} target={'_blank'}>
+							<DropdownMenuItem className={'flex text-xs justify-between cursor-pointer'}>
+								Visit our site <ArrowUpRight className={'w-5 h-5'} />
+							</DropdownMenuItem>
+						</Link>
+					</DropdownMenuContent>
+				</DropdownMenu>
 			</TableCell>
 			
 			{item.sub_active <= 0 && (
-				<div onClick={showModal} className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity">
-					<Button
-						variant="primary"
-						className="text-sm text-primary lg:text-base"
-					>
+				<div
+					onClick={showModal}
+					className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity"
+				>
+					<Button variant="primary" className="text-sm text-primary lg:text-base">
 						Purchase
 					</Button>
 				</div>

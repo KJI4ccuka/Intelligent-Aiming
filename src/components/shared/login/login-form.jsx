@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
-import { CircleX, KeyRound, LogIn, RefreshCcw, User } from 'lucide-react'
+import { CircleX, KeyRound, LogIn, User } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Cookie from 'js-cookie'
 
@@ -115,17 +115,17 @@ export const LoginForm = ({ className }) => {
       </div>
 
       <div className={'flex justify-between items-center gap-3'}>
-        <div className={'flex items-center'}>
-          <Button
-            type="reset"
-            variant='glowing'
-            onClick={() => reset()}
-            className="rounded-lg border-white/20 text-foreground"
-          >
-            <RefreshCcw className="h-5 w-5" />
-            <span className={'font-light ml-2'}>Reset form</span>
-          </Button>
-        </div>
+        {/*<div className={'flex items-center'}>*/}
+        {/*  <Button*/}
+        {/*    type="reset"*/}
+        {/*    variant='glowing'*/}
+        {/*    onClick={() => reset()}*/}
+        {/*    className="rounded-lg border-white/20 text-foreground"*/}
+        {/*  >*/}
+        {/*    <RefreshCcw className="h-5 w-5" />*/}
+        {/*    <span className={'font-light ml-2'}>Reset form</span>*/}
+        {/*  </Button>*/}
+        {/*</div>*/}
 
         <div className={'text-[14px] text-right underline text-foreground'}>
           <a href={'#'}>Forget your password?</a>

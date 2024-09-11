@@ -114,9 +114,7 @@ const products =
 					}
 				],
 			
-			'upgrades_available':
-				[]
-			
+			'upgrades_available': []
 		}
 	]
 
