@@ -4,11 +4,13 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Table, TableBody } from '@/components/ui/table'
 import ProductRow from '@/components/shared/products/products-row'
 
-const SubscriptionList = ({ products }) => {
+const SubscriptionList = ({ products, onProductSelect }) => {
 	const [selectedProductId, setSelectedProductId] = useState(products[0].id)
 	
 	const handleSelectProduct = (id) => {
 		setSelectedProductId(id)
+		const selectedProduct = products.find(product => product.id === id)
+		onProductSelect(selectedProduct) // Передаем выбранный продукт в родительский компонент
 	}
 	
 	return (

@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import VideoPlayer from '@/components/shared/products/vedeo-player'
 import RightSidebar from '@/components/shared/products/product-update-info'
 import LeftSideBar from '@/components/shared/products/left-sidebar'
@@ -12,6 +12,7 @@ import { Hero } from '@/components/shared/hero'
 const products =
 	[
 		{
+			'id': 1,
 			'icon': '/images/ARK-Survival-Ascended.png',
 			'name': 'ARK: Survival Ascended',
 			'images': [
@@ -64,18 +65,19 @@ const products =
 			
 		},
 		{
+			'id': 2,
 			'icon':
 				'/images/ARK-Survival-Evolved.png',
 			'name':
 				'ARK: Survival Evolved',
 			'images':
 				[
-					'https://intelligent-aiming.xyz/images/20230503191951_1.jpg',
-					'https://intelligent-aiming.xyz/images/ARK--Survival-Evolved-Screenshot-2023.04.28---22.18.15.52.webp',
-					'https://intelligent-aiming.xyz/images/20230502182553_1.jpg'
+					'/images/20230503191951_1.jpg',
+					'/images/ARK--Survival-Evolved-Screenshot-2023.04.28---22.18.15.52.webp',
+					'/images/20230502182553_1.jpg'
 				],
 			'video':
-				'https://intelligent-aiming.xyz/Videos/ark_se.mp4',
+				'https://www.dropbox.com/scl/fi/u5heinmt378y8d8j1cao7/ark_se.mp4?rlkey=13s514d05n1hh0t7i1jkrmue4&st=tr12ccvg&dl=1',
 			'product_url':
 				'https://intelligent-aiming.xyz/products/ark_se?ref=loader',
 			'product_status':
@@ -115,20 +117,27 @@ const products =
 				],
 			
 			'upgrades_available': []
-		}
+		},
 	]
 
 
 export default function ProductsPage() {
+	const [selectedProduct, setSelectedProduct] = useState(products[0])
+	
+	const handleProductSelect = (product) => {
+		setSelectedProduct(product)
+	}
 	
 	return (
 		<section>
 			<div className={'flex min-h-screen'}>
 				<Hero />
-				{<PaymentsEmbed />}
+				<PaymentsEmbed />
 				
-				<LeftSideBar products={products} />
+				{/* Передаем функцию выбора продукта и текущее состояние в LeftSideBar */}
+				<LeftSideBar products={products} onProductSelect={handleProductSelect} />
 				
+				{/* Основной контент, меняем данные в зависимости от selectedProduct */}
 				<div className={'w-[75%] relative border-l-2'}>
 					<div className={'bg-background-01 p-2.5 border-b w-full flex justify-between items-center lg:p-3.5'}>
 						<span className={'text-xs font-semibold lg:text-xl'}>Intelligent aiming</span>
@@ -137,16 +146,16 @@ export default function ProductsPage() {
 					<div className={'mt-2 flex justify-between lg:mt-4'}>
 						<div className={'w-[60%] flex-grow flex-col justify-between px-2 lg:px-4'}>
 							<div>
-								<VideoPlayer videoUrl={products[0].video} />
+								<VideoPlayer videoUrl={selectedProduct.video} />
 							</div>
 							
-							<VideoGallery images={products[0].images} />
+							<VideoGallery images={selectedProduct.images} />
 						</div>
 						
-						<RightSidebar productsInfo={products[0]} />
+						<RightSidebar productsInfo={selectedProduct} />
 					</div>
 					
-					<ProductDescription product={products[0]} />
+					<ProductDescription product={selectedProduct} />
 				</div>
 			</div>
 		</section>

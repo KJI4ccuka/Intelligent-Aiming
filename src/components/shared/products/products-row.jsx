@@ -13,13 +13,10 @@ const ProductRow = ({ item, isSelected, onSelect }) => {
 		<TableRow
 			onClick={onSelect}
 			className={`relative p-1.5 flex justify-between items-center lg:p-2.5 transition-all ${
-				item.sub_active > 0
-					? isSelected
-						? 'border-[0.2px] border-primary/65 rounded bg-background-01 shadow-[inset_0_2px_15px_rgba(0,255,150,0.2),0_0_8px_rgba(0,255,150,0.6)]'
+					isSelected
+						? 'border border-primary/65 rounded bg-background-01 shadow-[inset_0_2px_15px_rgba(0,255,150,0.2),0_0_8px_rgba(0,255,150,0.6)]'
 						: 'bg-background-01 cursor-pointer'
-					: 'bg-background-02 opacity-50'
 			}`}
-		
 		>
 			<TableCell className="hidden sm:table-cell p-0">
 				<img className="max-w-7 lg:w-12" src={item.icon} alt="Product icon" />
@@ -55,17 +52,6 @@ const ProductRow = ({ item, isSelected, onSelect }) => {
 					</DropdownMenuContent>
 				</DropdownMenu>
 			</TableCell>
-			
-			{item.sub_active <= 0 && (
-				<div
-					onClick={showModal}
-					className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity"
-				>
-					<Button variant="primary" className="text-sm text-primary lg:text-base">
-						Purchase
-					</Button>
-				</div>
-			)}
 		</TableRow>
 	)
 }
