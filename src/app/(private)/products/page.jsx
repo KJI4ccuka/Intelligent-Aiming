@@ -8,6 +8,9 @@ import VideoGallery from '@/components/shared/products/images-gallery'
 import ProductDescription from '@/components/shared/products/product-description'
 import PaymentsEmbed from '@/components/shared/payment-embed'
 import { Hero } from '@/components/shared/hero'
+import { CircleHelp } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const products =
 	[
@@ -130,7 +133,7 @@ export default function ProductsPage() {
 	
 	return (
 		<section>
-			<div className={'flex min-h-screen'}>
+			<div className={'flex'}>
 				<Hero />
 				<PaymentsEmbed />
 				
@@ -139,23 +142,36 @@ export default function ProductsPage() {
 				
 				{/* Основной контент, меняем данные в зависимости от selectedProduct */}
 				<div className={'w-[75%] relative border-l-2'}>
-					<div className={'bg-background-01 p-2.5 border-b w-full flex justify-between items-center lg:p-3.5'}>
-						<span className={'text-xs font-semibold lg:text-xl'}>Intelligent aiming</span>
+					<div className={'bg-background-01 p-2.5 border-b w-full flex justify-between items-center lg:p-2'}>
+						<span className={'text-xs ml-2 font-semibold lg:text-xl'}>Intelligent aiming</span>
+						<Link href={'/get-help'}>
+							<Button
+								variant="glowing"
+								className="rounded-lg mr-2 font-light tracking-wide text-xs h-7 px-2 py-1.5 flex items-center lg:h-10 lg:py-2 lg:text-sm lg:px-4"
+							>
+								<CircleHelp className="xs:block mr-1.5 h-3.5 w-3.5" />
+								Get help
+							</Button>
+						</Link>
+					
 					</div>
 					
-					<div className={'mt-2 flex justify-between lg:mt-4'}>
-						<div className={'w-[60%] flex-grow flex-col justify-between px-2 lg:px-4'}>
-							<div>
-								<VideoPlayer videoUrl={selectedProduct.video} />
+					<div className={'flex flex-col justify-between'}>
+						<div className={'mt-2 flex justify-between lg:mt-4'}>
+							<div className={'min-w-80 w-[60%] flex-grow flex-col justify-between px-2 lg:px-4'}>
+								<div>
+									<VideoPlayer videoUrl={selectedProduct.video} />
+								</div>
+								
+								<VideoGallery images={selectedProduct.images} />
 							</div>
 							
-							<VideoGallery images={selectedProduct.images} />
+							<RightSidebar productsInfo={selectedProduct} />
 						</div>
 						
-						<RightSidebar productsInfo={selectedProduct} />
+						<ProductDescription product={selectedProduct} />
 					</div>
-					
-					<ProductDescription product={selectedProduct} />
+				
 				</div>
 			</div>
 		</section>

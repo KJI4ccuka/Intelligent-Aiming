@@ -2,7 +2,7 @@
 
 export function Hero() {
   return (
-    <div className="absolute top-0 left-0 w-full h-screen overflow-hidden">
+    <div className="absolute top-0 left-0 w-full max-h-dvh overflow-hidden">
       <video
         className="h-full w-full object-cover"
         autoPlay

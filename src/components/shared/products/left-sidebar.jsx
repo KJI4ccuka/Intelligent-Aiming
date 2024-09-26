@@ -12,7 +12,6 @@ const LeftSideBar = ({ products, onProductSelect }) => {
 					<span className={'text-xs font-semibold lg:text-xl'}>Available Subscriptions:</span>
 				</div>
 				
-				{/* Передаем onProductSelect в SubscriptionList */}
 				<SubscriptionList products={products} onProductSelect={onProductSelect} />
 			</div>
 			

@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function ProductsLayout({ children }) {
   return (
-    <main className={'min-h-screen'}>
+    <main>
       {children}
     </main>
   );

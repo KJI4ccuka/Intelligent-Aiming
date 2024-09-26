@@ -43,10 +43,10 @@ const ProductRow = ({ item, isSelected, onSelect }) => {
 							<span className="sr-only">Toggle menu</span>
 						</Button>
 					</DropdownMenuTrigger>
-					<DropdownMenuContent className="w-36">
+					<DropdownMenuContent className="w-44">
 						<Link href={'https://intelligent-aiming.xyz/'} target={'_blank'}>
 							<DropdownMenuItem className={'flex text-xs justify-between cursor-pointer'}>
-								Visit our site <ArrowUpRight className={'w-5 h-5'} />
+								Visit product page <ArrowUpRight className={'w-5 h-5'} />
 							</DropdownMenuItem>
 						</Link>
 					</DropdownMenuContent>

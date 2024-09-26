@@ -17,7 +17,8 @@ const RightSidebar = ({ productsInfo }) => {
 	return (
 		<div className={'w-full flex flex-col md:w-[40%] pr-2 lg:pr-4'}>
 			<Card className="bg-background-01 overflow-hidden" x-chunk="dashboard-05-chunk-4">
-				<CardHeader className="flex p-2.5 border-b flex-row items-center space-y-0 justify-between bg-background-01 lg:p-3 xl:p-4">
+				<CardHeader
+					className="flex p-2.5 border-b flex-row items-center space-y-0 justify-between bg-background-01 lg:p-3 xl:p-4">
 					<CardTitle className="text-xs group inline-flex items-center xl:text-lg">
 						{productsInfo.name}
 					</CardTitle>
@@ -29,7 +30,13 @@ const RightSidebar = ({ productsInfo }) => {
 						<ul className="grid lg:gap-2">
 							<li className="flex items-center justify-between">
 								<span className="text-[11px] text-muted-foreground font-light lg:text-sm">Time left:</span>
-								<span className={`text-[11px] lg:text-sm ${days <= 3 && 'text-red-500'}`}>{days} DAYS</span>
+								{days > 0 ? (
+									<span className={`text-[11px] lg:text-sm ${days <= 3 ? 'text-red-500' : ''}`}>
+										{days} DAYS
+									</span>
+								) : (
+									<span className="text-red-500 text-[11px] lg:text-sm">INACTIVE</span>
+								)}
 							</li>
 							<li className="flex items-center justify-between">
 								<span className="text-[11px] text-muted-foreground font-light lg:text-sm">Status:</span>
@@ -41,22 +48,28 @@ const RightSidebar = ({ productsInfo }) => {
 						<Separator className="my-1 lg:my-2" />
 						<Tabs defaultValue="Requirements" className="w-full">
 							<TabsList className={'h-7 bg-background-02 lg:h-10'}>
-								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:px-2.5 lg:py-1'} value="Requirements"><ClipboardList className={'w-3 lg:w-3.5 mr-1'}/>Requirements:</TabsTrigger>
-								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:px-2.5 lg:py-1'} value="Changelog"><SquarePen className={'w-3 lg:w-3.5 mr-1'}/>Changelog:</TabsTrigger>
+								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:px-2.5 lg:py-1'}
+								             value="Requirements"><ClipboardList
+									className={'w-3 lg:w-3.5 mr-1'} />Requirements:</TabsTrigger>
+								<TabsTrigger className={'py-0 px-1.5 text-[9px] lg:text-sm lg:px-2.5 lg:py-1'}
+								             value="Changelog"><SquarePen className={'w-3 lg:w-3.5 mr-1'} />Changelog:</TabsTrigger>
 							</TabsList>
 							<TabsContent className={'mt-1'} value="Changelog">
-								<ScrollArea className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">
+								<ScrollArea
+									className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">
 									<ul className="grid gap-0 mr-1.5 lg:gap-2">
 										<li className="flex flex-col items-left justify-between">
 											<span
 												className="text-[9px] text-muted-foreground font-light lg:text-sm">{productsInfo.product_changelog_title}:</span>
-											<span className={'text-[9px] leading-3 font-light lg:text-sm'}>{productsInfo.product_changelog_body}</span>
+											<span
+												className={'text-[9px] leading-3 font-light lg:text-sm'}>{productsInfo.product_changelog_body}</span>
 										</li>
 									</ul>
 								</ScrollArea>
 							</TabsContent>
 							<TabsContent className={'mt-1'} value="Requirements">
-								<ScrollArea className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">
+								<ScrollArea
+									className="h-[70px] w-full bg-background-02/10 border-border border rounded-lg p-1.5 lg:h-28 lg:p-2.5">
 									<ul className="grid gap-0 mr-1.5 lg:gap-2">
 										{productsInfo.product_requirements.map((item, index) => {
 											const [key, value] = Object.entries(item)[0]
