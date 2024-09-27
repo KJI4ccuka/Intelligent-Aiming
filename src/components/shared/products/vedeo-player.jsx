@@ -13,7 +13,7 @@ export default function VideoPlayer({ videoUrl })  {
   }
 
   return (
-    <div className="h-full rounded-lg overflow-hidden">
+    <div className="rounded-lg overflow-hidden">
       <ReactPlayer
         url={videoUrl}
         width="100%"

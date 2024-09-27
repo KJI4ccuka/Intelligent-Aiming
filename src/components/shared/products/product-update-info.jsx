@@ -15,32 +15,32 @@ const RightSidebar = ({ productsInfo }) => {
 	}
 	
 	return (
-		<div className={'w-full flex flex-col md:w-[40%] pr-2 lg:pr-4'}>
+		<div className={'w-full flex flex-col md:w-[40%] pr-1 lg:pr-4'}>
 			<Card className="bg-background-01 overflow-hidden" x-chunk="dashboard-05-chunk-4">
 				<CardHeader
 					className="flex p-2.5 border-b flex-row items-center space-y-0 justify-between bg-background-01 lg:p-3 xl:p-4">
-					<CardTitle className="text-xs group inline-flex items-center xl:text-lg">
+					<CardTitle className="text-[11px] group inline-flex items-center xl:text-lg">
 						{productsInfo.name}
 					</CardTitle>
 					<ShieldCheck className={'text-primary my-0 w-[18px] h-[18px] xl:h-6 xl:w-5'} />
 				</CardHeader>
-				<CardContent className="p-2.5 text-sm lg:p-4">
+				<CardContent className="p-2 pt-1 text-sm lg:p-4">
 					<div className="grid">
-						<span className="mb-0.5 text-[11px] font-semibold lg:text-sm lg:mb-2">Product Details</span>
+						<span className="mb-0.5 text-[10px] font-semibold lg:text-sm lg:mb-2">Product Details</span>
 						<ul className="grid lg:gap-2">
 							<li className="flex items-center justify-between">
-								<span className="text-[11px] text-muted-foreground font-light lg:text-sm">Time left:</span>
+								<span className="text-[10px] text-muted-foreground font-light lg:text-sm">Time left:</span>
 								{days > 0 ? (
-									<span className={`text-[11px] lg:text-sm ${days <= 3 ? 'text-red-500' : ''}`}>
+									<span className={`text-[10px] lg:text-sm ${days <= 3 ? 'text-red-500' : ''}`}>
 										{days} DAYS
 									</span>
 								) : (
-									<span className="text-red-500 text-[11px] lg:text-sm">INACTIVE</span>
+									<span className="text-red-500 text-[10px] lg:text-sm">INACTIVE</span>
 								)}
 							</li>
 							<li className="flex items-center justify-between">
-								<span className="text-[11px] text-muted-foreground font-light lg:text-sm">Status:</span>
-								<span className={`text-[11px] lg:text-sm ${statusClasses[status] || ''}`}>
+								<span className="text-[10px] text-muted-foreground font-light lg:text-sm">Status:</span>
+								<span className={`text-[10px] lg:text-sm ${statusClasses[status] || ''}`}>
 									{status.toUpperCase()}
 								</span>
 							</li>

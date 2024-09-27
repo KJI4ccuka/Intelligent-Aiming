@@ -7,24 +7,23 @@ import ProductRow from '@/components/shared/products/products-row'
 const SubscriptionList = ({ products, onProductSelect }) => {
 	const [selectedProductId, setSelectedProductId] = useState(products[0].id)
 	
-	const handleSelectProduct = (id) => {
-		setSelectedProductId(id)
-		const selectedProduct = products.find(product => product.id === id)
-		onProductSelect(selectedProduct) // Передаем выбранный продукт в родительский компонент
+	const handleSelectProduct = (product) => {
+		setSelectedProductId(product.id)
+		onProductSelect(product)
 	}
 	
 	return (
 		<ScrollArea className="flex flex-1 w-full border-b">
 			<Card>
-				<CardContent className={'p-0 border-b'}>
+				<CardContent className="p-0 border-b">
 					<Table>
-						<TableBody className={'flex flex-col cursor-pointer'}>
-							{products.map((item, index) => (
+						<TableBody className="flex flex-col cursor-pointer">
+							{products.map((product, index) => (
 								<ProductRow
 									key={index}
-									item={item}
-									isSelected={item.id === selectedProductId}
-									onSelect={() => handleSelectProduct(item.id)}
+									item={product}
+									isSelected={product.id === selectedProductId}
+									onSelect={() => handleSelectProduct(product)}
 								/>
 							))}
 						</TableBody>
